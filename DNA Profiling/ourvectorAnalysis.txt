@@ -1,0 +1,95 @@
+Welcome to the DNA Profiling Application.
+Enter command or # to exit: load_db small.txt
+Loading database...
+Enter command or # to exit: display
+Database loaded: 
+Alice 2 8 3
+Bob 4 1 5
+Charlie 3 2 5
+
+No DNA loaded.
+
+No DNA has been processed.
+Enter command or # to exit: load_dna 1.txt
+Loading DNA...
+Enter command or # to exit: display
+Database loaded: 
+Alice 2 8 3Bob 4 1 5Charlie 3 2 5
+DNA loaded: 
+AAGGTAAGTTTAGAATATAAAAGGTGAGTTAAATAGAATAGGTTAAAATTAAAGGAGATCAGATCAGATCAGATCTATCTATCTATCTATAAGGAGATCAGATCAGATCAGATCTATCTATCTATCTATATCAGATCAGATTCTATTATTCTAAGATATTGATGGGGAAAAAGG
+No DNA has been processed.Enter command or # to exit: processProcessing DNA...
+Enter command or # to exit: displayDatabase loaded: TTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTAATCAGATTCCTATCCTATCCTATCCTATCCTATCCTATCCTATCCTATCCTATCCTATCCTATCCTATCTATATATCAGATCAGATTCTATTATTCTAAGATATTGATGGGGAAAAAGGDNA processed, STR counts: AGATC: 4AATG: 1
+TATC: 5Enter command or # to exit: search
+Searching database...
+Found in database!  DNA matches: Bob
+Enter command or # to exit: display
+Database loaded: 
+Alice 2 8 3
+Bob 4 1 5
+Charlie 3 2 5
+
+DNA loaded: 
+AAGGTAAGTTTAGAATATAAAAGGTGAGTTAAATAGAATAGGTTAAAATTAAAGGAGATCAGATATCAGATCAGATCAGATCTATCTATCTATCTATAAGGAGATCAGATCAGATCAGATCCTATCTATATCTATCTATCTATATCAGATCAGATTCTATTATTCTAAGATATTGATGGGGAAAA
+
+DNA processed, STR counts: 
+AGATC: 4
+AATG: 1
+TATC: 5
+
+Enter command or # to exit: add
+Enter a new individual name: 
+Chloe
+Enter some new numbers of countTimes for each STRs: 
+23 3 4
+Enter command or # to exit: display
+Database loaded: 
+Alice 2 8 3
+Bob 4 1 5
+Charlie 3 2 5
+Chloe 23 3 4
+
+DNA loaded: 
+AAGGTAAGTTTAGAATATAAAAGGTGAGTTAAATAGAATAGGTTAAAATTAAAGGAGATCAGATATCAGATCAGATCAGATCTATCTATCTATCTATAAGGAGATCAGATCAGATCAGATCCTATCTATATCTATCTATCTATATCAGATCAGATTCTATTATTCTAAGATATTGATGGGGAAAA
+
+DNA processed, STR counts: 
+AGATC: 4
+AATG: 1
+TATC: 5
+
+Enter command or # to exit: #
+*********************************************************
+ourvector<c> stats:
+ # of vectors created:   23
+ # of elements inserted: 235
+ # of elements accessed: 2281
+*********************************************************
+*********************************************************
+ourvector<9ourvectorIcE> stats:
+ # of vectors created:   3
+ # of elements inserted: 9
+ # of elements accessed: 2092
+*********************************************************
+*********************************************************
+ourvector<i> stats:
+ # of vectors created:   17
+ # of elements inserted: 39
+ # of elements accessed: 93
+*********************************************************
+*********************************************************
+ourvector<4Data> stats:
+ # of vectors created:   1
+ # of elements inserted: 4
+ # of elements accessed: 143
+*********************************************************
+
+There are 4 ourvectorsin this project, one is used to store Data type of People, one is to store characters of STR sequence, one is used to store characters of DNA data and the last one is used to store integers type of DNA mathch time.Based on the report above, every time when I called push_back function, it will create another vector. 
+
+char vector(ourvector<char>DNA): I call DNA.push_back() at line 228 to store the data into vector. From the input load_db, we call the function LoadDnaFile to created 23 char from 1.txt file. The element is insetred from 1.txt file as well.
+
+9ourvectorIcE vector(ourvector<ourvector<char>> STRs): STRs.push_back() at line 91 and 93 to store three STR sequences into STRs vector. It will insert the elements from 9 times of STRs countTimes. The inserted elements are from loadDataFile function.
+
+int vector(ourvector<int>dnaMatch): calling dnaMatch.push_back at line 306. Everytime the code will compare the DNA data and STR sequence to retrieve the dnaMatch counts, and the time of calling dnaMatch function will be 17 times based on calling process function.The insert elements is from streak match Times, and the accessed elements are from 
+
+
+Data vector(ourvector<Data>People): I call People.push_back(human) to store People.name at line 110 and 387. When I input load_db, it will call loadDataFile function to create the vector and insert 3 elements like Alice, Bob, Charlie from small.txt and 1 elements Chloe from user input. The number of accessed is from reading the data at line 385 from this vector. Each time I loop through the People vector, it will count the number of accessed elements.
+
